@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react"
 import ReactDOM from "react-dom";
-import Clock from 'react-digital-clock';
+import Items from "./items";
 import Instagram from './img/instagram.png'
 const instagram_image = new Image()
 instagram_image.src = Instagram
 instagram_image.width = 20
 
-
 const wrapper = document.getElementById('container');
-wrapper ? ReactDOM.render(<Clock />, wrapper) : false;
+wrapper ? ReactDOM.render(<Items />, wrapper) : false;
