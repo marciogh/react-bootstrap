@@ -2,8 +2,6 @@ import React from "react"
 import { Component } from "react";
 
 class Items extends Component {
-    
-    url = 'http://localhost:3000'
 
     constructor(props) {
         super(props);
@@ -12,6 +10,7 @@ class Items extends Component {
             isLoaded: false,
             items: []
         }
+        this.url = 'http://localhost:3000'
     }
 
     componentDidMount() {
