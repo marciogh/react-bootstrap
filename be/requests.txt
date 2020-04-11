@@ -1,0 +1,18 @@
+POST http://localhost:3000/item HTTP/1.1
+content-type: application/json
+
+{
+    "name": "My first Item",
+    "price": 10
+}
+
+POST http://localhost:3000/item HTTP/1.1
+content-type: application/json
+
+{
+    "name": "More expensive Item",
+    "price": 20
+}
+
+
+GET http://localhost:3000/item HTTP/1.1

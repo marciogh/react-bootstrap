@@ -1,5 +1,6 @@
 import React from "react"
 import { Component } from "react";
+import { Table } from 'react-bootstrap';
 
 class Items extends Component {
 
@@ -10,17 +11,17 @@ class Items extends Component {
             isLoaded: false,
             items: []
         }
-        this.url = 'http://localhost:3000'
+        this.url = 'http://localhost:3000/item'
     }
 
     componentDidMount() {
         fetch(this.url)
-        .then(res => res.json())
+        .then(res => res.json())        
         .then(
             (result) => {
                 this.setState({
                     isLoaded: true,
-                    items: result.items
+                    items: result
                 });
             },
             (error) => {
@@ -40,11 +41,22 @@ class Items extends Component {
             return <div>Error!</div>
         } else {
             return (
-                <ul>
-                    {items.map(item => (
-                        <li>{item.name} {item.price}</li>
-                    ))}
-                </ul>
+                <Table striped bordered hover>
+                      <thead>
+                        <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items.map(item => (
+                            <tr>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             )
         }
     }
