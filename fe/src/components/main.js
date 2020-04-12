@@ -1,6 +1,5 @@
 import React from "react"
 import { Component } from "react";
-import { Table } from 'react-bootstrap';
 import Clock from 'react-digital-clock';
 import Items from './items'
 

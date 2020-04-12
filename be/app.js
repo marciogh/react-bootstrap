@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+var cors = require('cors')
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/my_database', {
@@ -21,6 +22,7 @@ const ItemModel = mongoose.model('ItemsModel', Item);
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get('/item', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*')
@@ -33,6 +35,7 @@ app.get('/item', (req, res) => {
 })
 
 app.post('/item', (req, res) => {
+  console.log(req.body)
   let item = new ItemModel(req.body)
   item.save((err, user) => {
     if (err) {
